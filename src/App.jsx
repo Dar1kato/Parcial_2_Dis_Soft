@@ -15,6 +15,19 @@ export default function App() {
   // TODO: los demás estados que necesites (cargando, mensajes de error, folio...)
 
   // TODO HU-01 · RNF-04: cargar el menú UNA sola vez al montar el componente.
+  useEffect(() => {
+    async function load() {
+      const res = await cargarMenu()
+      
+      const data = await Promise.all(
+        res.map((e) => {
+          setMenu([...menu, e])
+        })
+      )
+    }
+
+    load();
+  })
 
   // TODO HU-02, HU-03: manejadores que llamen a las funciones de src/logic/orden.js.
   //       Aquí no se escriben reglas: solo se llaman.
