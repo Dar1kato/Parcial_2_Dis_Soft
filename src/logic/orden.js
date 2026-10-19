@@ -38,7 +38,7 @@ export function quitarPlatillo(orden, id) {
 
 // HU-02-E1, HU-02-E2 (y HU-05, HU-06 cuando llegues a los Should)
 export function agregarPlatillo(orden, platillo) {
-  // TODO
+  orden.items.push(platillo)
   return orden
 }
 

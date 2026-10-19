@@ -8,6 +8,7 @@ import Confirmacion from './components/Confirmacion'
 import { crearOrden } from './logic/orden'
 import { cargarMenu } from './data/menu'
 import { guardarOrden } from './data/ordenes'
+import { agregarPlatillo } from './logic/orden'
 
 export default function App() {
   const [menu, setMenu] = useState([])
@@ -15,7 +16,7 @@ export default function App() {
   // TODO: los demás estados que necesites (cargando, mensajes de error, folio...)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  
+
   // TODO HU-01 · RNF-04: cargar el menú UNA sola vez al montar el componente.
   useEffect(() => {
     cargarMenu()
@@ -36,7 +37,7 @@ export default function App() {
       </header>
 
       <main className="layout"> 
-          { !loading && <Menu menu={menu} onAgregar={() => {}} />}
+          { !loading && <Menu menu={menu} onAgregar={agregarPlatillo(orden)} />}
           { loading && <p>Cargando...</p>}
           
        <Orden orden={orden} />

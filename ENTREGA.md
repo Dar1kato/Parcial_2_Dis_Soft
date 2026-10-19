@@ -4,29 +4,29 @@
 
 | Historia | Estado (completa · parcial · no la empecé) | Comentario |
 | --- | --- | --- |
-| HU-01 Ver el menú | | |
-| HU-02 Armar la orden | | |
-| HU-03 Ver el total | | |
-| HU-04 Confirmar la orden | | |
-| HU-05 Ajustar cantidades | | |
-| HU-06 Platillos agotados | | |
-| HU-07 Si algo falla | | |
-| HU-08 Notas por platillo | | |
+| HU-01 Ver el menú | Completa | |
+| HU-02 Armar la orden | parcial | |
+| HU-03 Ver el total | no la empecé | |
+| HU-04 Confirmar la orden | no la empecé | |
+| HU-05 Ajustar cantidades | no la empecé | |
+| HU-06 Platillos agotados | no la empecé | |
+| HU-07 Si algo falla | no la empecé | |
+| HU-08 Notas por platillo | no la empecé | |
 
 ## Lo que no alcancé y por qué
 
-_(Dos o tres renglones. Qué faltó y qué harías primero si tuvieras media hora más.)_
+El tiempo no fue suficiente para entender el codebase existente y la documentación entregada. 
 
 ## Decisiones que tomé y que el diseño no decía
 
-_(Si el diseño no resolvía algo y tú decidiste, escríbelo aquí. Si no hubo, escribe "ninguna".)_
+Tomé mucho tiempo en entender la documentación y el backlog, por lo que no me dio tiempo de empezar a hacer todos los puntos del backlog.
 
 ## Declaración de uso de IA generativa
 
 Marca **una** con `[x]`:
 
 - [ ] **No utilicé IA generativa** en este examen, incluido el autocompletado del editor.
-- [ ] **Sí utilicé IA generativa.**
-  - Herramienta:
-  - Qué le pedí:
-  - Qué acepté, qué rechacé y por qué:
+- [X] **Sí utilicé IA generativa.**
+  - Herramienta: Copilot VSCode
+  - Qué le pedí: ayuda para debugear el useEffect del HU-01
+  - Qué acepté, qué rechacé y por qué: la IA no generó codigo, genero una pista que me apuntaba a la solución

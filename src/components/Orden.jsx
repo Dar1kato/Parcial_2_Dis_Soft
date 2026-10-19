@@ -9,6 +9,9 @@ export default function Orden({ orden }) {
     <section aria-label="Orden">
       <h2>Orden</h2>
       {/* TODO HU-02 · HU-03 · HU-04 */}
+      <li>
+      
+      </li>
     </section>
   )
 }

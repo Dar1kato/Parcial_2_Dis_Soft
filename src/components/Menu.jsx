@@ -6,7 +6,7 @@
 // Props:
 //   menu       arreglo de platillos { id, nombre, precio, categoria, disponible }
 //   onAgregar  función que recibe el platillo completo
-export default function Menu({ menu, onAgregar }) {
+export default function Menu({ menu, onAgregar}) {
   const categorias = [...new Set(menu.map((p) => p.categoria))]
   return (
     <section aria-label="Menú">
