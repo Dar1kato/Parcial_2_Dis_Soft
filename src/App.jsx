@@ -13,24 +13,18 @@ export default function App() {
   const [menu, setMenu] = useState([])
   const [orden, setOrden] = useState(crearOrden())
   // TODO: los demás estados que necesites (cargando, mensajes de error, folio...)
-
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  
   // TODO HU-01 · RNF-04: cargar el menú UNA sola vez al montar el componente.
   useEffect(() => {
-    async function load() {
-      const res = await cargarMenu()
+    cargarMenu()
+      .then((data) => setMenu(data))
       
-      const data = await Promise.all(
-        res.map((e) => {
-          setMenu([...menu, e])
-        })
-      )
-    }
-
-    load();
   })
 
   // TODO HU-02, HU-03: manejadores que llamen a las funciones de src/logic/orden.js.
-  //       Aquí no se escriben reglas: solo se llaman.
+ 
 
   // TODO HU-04 · RNF-02: confirmar la orden.
 
@@ -41,9 +35,11 @@ export default function App() {
         <p>Toma de órdenes</p>
       </header>
 
-      <main className="layout">
-        <Menu menu={menu} onAgregar={() => {}} />
-        <Orden orden={orden} />
+      <main className="layout"> 
+          { !loading && <Menu menu={menu} onAgregar={() => {}} />}
+          { loading && <p>Cargando...</p>}
+          
+       <Orden orden={orden} />
       </main>
 
       <Confirmacion folio={null} />

@@ -10,5 +10,5 @@
   { "id": "b2", "nombre": "Café de olla", "precio": 35, "categoria": "Bebidas", "disponible": true },
   { "id": "b3", "nombre": "Refresco", "precio": 30, "categoria": "Bebidas", "disponible": true },
   { "id": "d1", "nombre": "Arroz con leche", "precio": 40, "categoria": "Postres", "disponible": true },
-  { "id": "d2", "nombre": "Camote poblano", "precio": 35, "categoria": "Postres", "disponible": false }
+  { "id": "d2", "nombre": "Camote poblano", "precio": 35, "categoria": "Postres", "disponible": false } 
 ]
