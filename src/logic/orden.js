@@ -38,7 +38,7 @@ export function quitarPlatillo(orden, id) {
 
 // HU-02-E1, HU-02-E2 (y HU-05, HU-06 cuando llegues a los Should)
 export function agregarPlatillo(orden, platillo) {
-  if (!orden.items.includes(platillo)) {
+  if (orden.items.find((item) => item.id === platillo.id)) {
     return {
       ...orden,
       items: orden.items.map((item) => 
@@ -60,7 +60,7 @@ export function agregarPlatillo(orden, platillo) {
 
 // HU-03
 export function calcularTotal(orden) {
-  const total = 0;
+  let total = 0;
 
   orden.items.map((item) => {
     total += item.cantidad * item.precio
