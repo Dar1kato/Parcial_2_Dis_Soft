@@ -23,7 +23,8 @@ export default function App() {
   const [orden, setOrden] = useState(crearOrden())
   // TODO: los demás estados que necesites (cargando, mensajes de error, folio...)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [errores, setErrores] = useState([])
+  const [folio, setFolio] = useState()
 
   // TODO HU-01 · RNF-04: cargar el menú UNA sola vez al montar el componente.
   useEffect(() => {
@@ -46,6 +47,20 @@ export default function App() {
     setOrden(asignarMesa(orden, valor))
   }
 
+  async function handleConfirmar() {
+    const { valida, errores: codigos } = validarOrden(orden)
+
+    if (!valida) {
+      setErrores(codigos.map((codigo) => MENSAJES[codigo]))
+      return
+    }
+
+    setErrores([])
+    const { id } = await guardarOrden(orden)
+    setFolio(id)
+    setOrden(crearOrden())
+  }
+
   return (
     <div className="app">
       <header className="encabezado">
@@ -57,10 +72,17 @@ export default function App() {
           { !loading && <Menu menu={menu} onAgregar={handleAgregar} />}
           { loading && <p>Cargando...</p>}
           
-       <Orden orden={orden} onQuitar={hanldeQuitar} total={calcularTotal(orden)} onMesa={handleMesa}/>
+       <Orden 
+        orden={orden} 
+        onQuitar={hanldeQuitar} 
+        total={calcularTotal(orden)} 
+        onMesa={handleMesa}
+        onConfirmar={handleConfirmar}
+        errores={errores}
+      />
       </main>
 
-      <Confirmacion folio={null} />
+      <Confirmacion folio={folio} />
     </div>
   )
 }
