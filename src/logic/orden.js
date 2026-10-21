@@ -78,8 +78,17 @@ export function asignarMesa(orden, valor) {
 
 // HU-04-E2, HU-04-E3
 export function validarOrden(orden) {
-  // TODO
-  return { valida: false, errores: [] }
+  const errores = []
+  const mesa = orden.mesa
+  if (!Number.isInteger(mesa) || mesa < MESA_MIN || mesa > MESA_MAX) {
+    errores.push('MESA_INVALIDA')
+  }
+
+  if (orden.items.legnth === 0) {
+    errores.push('ORDEN_VACIA')
+  }
+
+  return { valida: errores.length === 0, errores}
 }
 
 // ---------------------------------------------------------------------------
