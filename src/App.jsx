@@ -25,7 +25,7 @@ export default function App() {
   })
 
   // TODO HU-02, HU-03: manejadores que llamen a las funciones de src/logic/orden.js.
- 
+  
 
   // TODO HU-04 · RNF-02: confirmar la orden.
 
@@ -37,7 +37,7 @@ export default function App() {
       </header>
 
       <main className="layout"> 
-          { !loading && <Menu menu={menu} onAgregar={agregarPlatillo(orden)} />}
+          { !loading && <Menu menu={menu} onAgregar={agregarPlatillo} />}
           { loading && <p>Cargando...</p>}
           
        <Orden orden={orden} />

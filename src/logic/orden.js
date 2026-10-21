@@ -38,8 +38,24 @@ export function quitarPlatillo(orden, id) {
 
 // HU-02-E1, HU-02-E2 (y HU-05, HU-06 cuando llegues a los Should)
 export function agregarPlatillo(orden, platillo) {
-  orden.items.push(platillo)
-  return orden
+  if (!orden.items.includes(platillo)) {
+    return {
+      ...orden,
+      items: orden.items.map((item) => 
+        item.id === platillo.id ? {...item, cantidad: item.cantidad + 1} : item
+      )
+    }
+  }
+
+  const nuevo = {
+    id: platillo.id,
+    nombre: platillo.nombre,
+    precio: platillo.precio,
+    cantidad: 1,
+    nota: '',
+  }
+
+  return {...orden, items: [...orden.items, nuevo]}
 }
 
 // HU-03
