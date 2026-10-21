@@ -4,10 +4,13 @@
 //
 // Props: decide tú cuáles necesita y escríbelas aquí.
 //        (Pista: la orden, el total, los mensajes de error y una función por acción.)
-export default function Orden({ orden, onQuitar, total }) {
+export default function Orden({ orden, onQuitar, total, onMesa }) {
   return (
     <section aria-label="Orden">
       <h2>Orden</h2>
+      <label>
+        Mesa <input type="number" value={orden.mesa ?? ''} onChange={(e) => onMesa(e.target.value)}/>
+      </label>
       <ul>
         {orden.items.map((item) => (
           <li key={item.id} aria-label={item.nombre}>
