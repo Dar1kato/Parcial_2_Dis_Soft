@@ -55,7 +55,7 @@ export function agregarPlatillo(orden, platillo) {
     nota: '',
   }
 
-  return {...orden, items: [...orden.items, nuevo]}
+  return { ...orden, items: [...orden.items, nuevo] }
 }
 
 // HU-03
@@ -71,8 +71,9 @@ export function calcularTotal(orden) {
 
 // HU-04-E2
 export function asignarMesa(orden, valor) {
-  // TODO
-  return orden
+  const texto = String(valor).trim()
+  const numero = texto === '' ? NaN : Number(texto)
+  return { ...orden, mesa: Number.isFinite(numero) ? numero : null }
 }
 
 // HU-04-E2, HU-04-E3
