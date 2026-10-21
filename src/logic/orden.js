@@ -60,8 +60,13 @@ export function agregarPlatillo(orden, platillo) {
 
 // HU-03
 export function calcularTotal(orden) {
-  // TODO
-  return 0
+  const total = 0;
+
+  orden.items.map((item) => {
+    total += item.cantidad * item.precio
+  })
+
+  return total
 }
 
 // HU-04-E2
